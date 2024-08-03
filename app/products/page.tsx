@@ -1,5 +1,4 @@
 import ProductsContainer from "@/components/products/ProductsContainer";
-
 function ProductsPage({
   searchParams,
 }: {
