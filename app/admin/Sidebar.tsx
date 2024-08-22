@@ -12,13 +12,14 @@ function Sidebar() {
       {adminLinks.map((link) => {
         const isActivePage = pathname === link.href;
         const variant = isActivePage ? "default" : "ghost";
+        const { href, label } = link;
         return (
           <Button
             asChild
             variant={variant}
             className='w-full mb-2 capitalize font-normal justify-start'>
-            <Link key={link.href} href={link.href}>
-              {link.label}
+            <Link key={href} href={href}>
+              {label}
             </Link>
           </Button>
         );
