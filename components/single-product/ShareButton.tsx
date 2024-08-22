@@ -16,14 +16,13 @@ import {
   LinkedinIcon,
 } from "react-share";
 
-import React from "react";
-
 function ShareButton({ productId, name }: { productId: string; name: string }) {
   const url = process.env.NEXT_PUBLIC_WEBSITE_URL;
   const shareLink = `${url}/products/${productId}`;
+
   return (
     <Popover>
-      <PopoverTrigger>
+      <PopoverTrigger asChild>
         <Button variant='outline' size='icon' className='p-2'>
           <LuShare2 />
         </Button>
@@ -34,17 +33,16 @@ function ShareButton({ productId, name }: { productId: string; name: string }) {
         sideOffset={10}
         className='flex items-center gap-x-2 justify-center w-full'>
         <TwitterShareButton url={shareLink} title={name}>
-          <TwitterIcon size={32} round={true} />
+          <TwitterIcon size={32} round />
         </TwitterShareButton>
         <LinkedinShareButton url={shareLink} title={name}>
-          <LinkedinIcon size={32} round={true} />
+          <LinkedinIcon size={32} round />
         </LinkedinShareButton>
-        <EmailShareButton url={shareLink} title={name}>
-          <EmailIcon size={32} round={true} />
+        <EmailShareButton url={shareLink} subject={name}>
+          <EmailIcon size={32} round />
         </EmailShareButton>
       </PopoverContent>
     </Popover>
   );
 }
-
 export default ShareButton;

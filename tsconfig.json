@@ -5,21 +5,23 @@
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "esModuleInterop": true, // Ensures compatibility between CommonJS and ES modules
+    "module": "esnext", // Use ESNext module syntax
+    "moduleResolution": "bundler", // Resolves modules in a way that works with bundlers like Webpack
+    "resolveJsonModule": true, // Allows importing .json files as modules
+    "isolatedModules": true, // Ensures that each file is treated as an isolated module
+    "jsx": "preserve", // Keeps JSX as is, useful for React with Next.js
+    "incremental": true, // Speeds up subsequent TypeScript builds
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/*": ["./*"] // Allows you to use @/ for imports from the root directory
+    },
+    "target": "es5", // Add this for compatibility with older environments (like ES5)
+    "forceConsistentCasingInFileNames": true // Ensures consistent casing in imports
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
